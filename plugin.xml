@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.eeesolutions.androidconnectivity"
+        version="1.0">
+
+  <name>Android Connectivity</name>
+	<description>
+		This Android Phonegap plugin returns the Device Connectivity Attributes like Cell Signal Strength,Wifi Link Speed etc.
+	</description>
+	
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <asset src="www/androidconnectivity.js" target="js/androidconnectivity.js"/>
+
+  <js-module src="www/androidconnectivity.js" name="androidconnectivity">
+    <clobbers target="androidconnectivity" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="AndroidConnectivity">
+        <param name="android-package" value="com.eeesolutions.plugin.AndroidConnectivity"/>
+      </feature>
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    </config-file>
+
+    <source-file src="src/android/AndroidConnectivity.java" target-dir="src/com/eeesolutions/plugin/"/>
+  </platform>
+
+</plugin>
